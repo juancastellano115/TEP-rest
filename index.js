@@ -12,7 +12,12 @@ var T = new Twit({
   timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
   strictSSL: true // optional - requires SSL certificates to be valid.
 });
-app.use(cors());
+
+//Enable C.O.R.S.
+app.use(cors({
+  origin: 'https://juancastellano.gq'
+}));
+
 app.get("/:usuario", function(req, res) {
   res.setHeader("Content-Type", "application/json");
   let data = req.params.usuario;
